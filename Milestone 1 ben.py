@@ -22,17 +22,3 @@ def dna2rna(dna):
             rna = rna +'C'
     return rna
     print(rna)
-def reverse_complement(dna):
-    reverse_complement = ''
-    dna ='TGCA'
-    for symbol in dna:
-        if symbol == 'A':
-            reverse_complement = reverse_complement+'T'
-        elif symbol == 'C':
-            reverse_complement = reverse_complement+'G'
-        elif symbol == 'G':
-            reverse_complement = reverse_complement+'C'
-        elif symbol == 'T':
-            reverse_complement = reverse_complement+'A'
-    return(reverse_complement)
-    print(reverse_complement)
