@@ -1,0 +1,15 @@
+ def reverse_complement(dna):
+
+   for symbol in dna:
+       if symbol == 'A':
+           dna = dna + 'T'
+       elif symbol == 'T':
+           dna = dna + 'A'
+       elif symbol == 'C':
+           dna = dna + 'G'
+       elif symbol == 'G':
+           dna = dna + 'C'
+           
+   reverse_dna = dna[::-1]
+
+   return reverse_dna
