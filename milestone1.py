@@ -129,3 +129,8 @@ def rna2codons(rna):
         amino = rna2codon(c)
         amino_string = amino_string + amino
     return amino_string
+
+def count_dom_phenotype(genotypes):
+    offspring = (genotypes[0] + genotypes[1] + genotypes[2])*2 + genotypes[3]*1.5 + genotypes[4] 
+    return offspring
+
