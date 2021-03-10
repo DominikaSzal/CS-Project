@@ -7,6 +7,7 @@ def dna_count(dna):
     
     print (count_A,count_C,count_G,count_T)
     return count_A,count_C,count_G,count_T
+
 def dna2rna(dna):
 
     rna = ''
