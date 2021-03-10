@@ -64,6 +64,12 @@ def fibonacci_rabbits(n,k):
     return F2
 print(fibonacci_rabbits(5,3))
 
+def locate_substring(dna_snippet, dna): 
+        indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
+        return indexes
+
+print(locate_substring("GATATATGCATATACTT","ATAT"))
+
 def hamming_dist(dna1, dna2):
     count = 0
     d = 0
