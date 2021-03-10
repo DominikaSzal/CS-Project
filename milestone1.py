@@ -64,6 +64,24 @@ def fibonacci_rabbits(n,k):
     return F2
 print(fibonacci_rabbits(5,3))
 
+dna_list = ['CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG','CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC','CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT']
+def GC_content(dna_list):
+
+  a = dna_list[0]
+  b = dna_list[1]
+  c = dna_list[2]
+
+  GC_count0 = a.count('C') + a.count('G')
+  GC_count1 = b.count('C') + b.count('G')
+  GC_count2 = c.count('C') + c.count('G')
+
+  if GC_count0 > GC_count1 and GC_count0 > GC_count2:
+      return (0, (GC_count0/len(dna_list[0]))*100)
+  elif GC_count1 > GC_count0 and GC_count1 > GC_count2:
+      return (1, (GC_count1/len(dna_list[1]))*100)
+  elif GC_count2 > GC_count0 and GC_count2 > GC_count1:
+      return (2, (GC_count2/len(dna_list[2]))*100)
+
 def locate_substring(dna_snippet, dna): 
         indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
         return indexes
