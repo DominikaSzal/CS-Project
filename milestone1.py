@@ -54,6 +54,15 @@ def mendels_law(hom,het,rec):
 
     return 1 - rec_pop*rec_pop3 - rec_pop*het_pop2b*0.5 - het_pop*rec_pop3b*0.5 - het_pop*het_pop2*0.25
 
+
+
+def fibonacci_rabbits(n,k):
+    F1,F2 = 1,1
+    for i in range(n-1):
+        F2,F1 = F1,F1+(F2*k)
+    
+    return F2
+print(fibonacci_rabbits(5,3))
 def hamming_dist(dna1, dna2):
     count = 0
     d = 0
