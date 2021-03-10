@@ -52,3 +52,12 @@ def mendels_law(hom,het,rec):
     rec_pop3b = rec/pop2
 
     return 1 - rec_pop*rec_pop3 - rec_pop*het_pop2b*0.5 - het_pop*rec_pop3b*0.5 - het_pop*het_pop2*0.25
+
+def hamming_dist(dna1, dna2):
+    count = 0
+    d = 0
+    while(d<len(dna1)):
+        if dna1[d] != dna2[d]:
+            count += 1
+        d += 1
+    return count
