@@ -151,8 +151,10 @@ def splice_rna(dna, intron_list):
     
     rna = dna2rna(dna)
 
-    protein = rna2codon(rna)
     #see campuswire post #867
-    for item in protein:
-            protein = protein.replace("T","U")
+    for item in rna:
+            rna = rna.replace("T","U")
+
+    protein = rna2codon(rna)
+
     return protein
