@@ -94,7 +94,7 @@ def hamming_dist(dna1, dna2):
         d += 1
     return count
 
- def rna2codon_i(rnas):
+def rna2codon_i(rnas):
     genetic_code = {
         'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
         'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
