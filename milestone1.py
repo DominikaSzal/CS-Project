@@ -62,7 +62,7 @@ def fibonacci_rabbits(n,k):
         F2,F1 = F1,F1+(F2*k)
     
     return F2
-print(fibonacci_rabbits(5,3))
+
 
 dna_list = ['CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG','CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC','CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT']
 
@@ -118,8 +118,6 @@ def rna2codon(triplet):
         if character not in allowed_codons:
             return('')
     return_val = genetic_code.get(tripletUP, '')
-
-
 
     return return_val
 
