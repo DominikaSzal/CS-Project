@@ -1,12 +1,12 @@
-
 def dna_count(dna):
     count_A = dna.count('A')
     count_C = dna.count('C')
     count_T = dna.count('T')
     count_G = dna.count('G')
-    
-    print (count_A,count_C,count_G,count_T)
-    return count_A,count_C,count_G,count_T
+
+    d = {'A':count_A, 'C':count_C, 'T':count_T, 'G':count_G}
+    print (d)
+    return d
 
 def dna2rna(dna):
 
