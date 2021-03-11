@@ -133,3 +133,11 @@ def count_dom_phenotype(genotypes):
     offspring = (genotypes[0] + genotypes[1] + genotypes[2])*2 + genotypes[3]*1.5 + genotypes[4] 
     return offspring
 
+def source_rna(protein):
+  count = 1
+  for key in genetic_code.keys():
+      if genetic_code[key] in protein:
+          count += 1
+      elif genetic_code[key]=='*':
+          count += len(protein)
+  return count % 100000
