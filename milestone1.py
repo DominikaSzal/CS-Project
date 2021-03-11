@@ -143,3 +143,16 @@ def source_rna(protein):
       elif genetic_code[key]=='*':
           count += len(protein)
   return count % 100000
+
+def splice_rna(dna, intron_list):
+    for x in intron_list:
+        for i in dna:
+            dna = dna.replace(x,"")
+    
+    rna = dna2rna(dna)
+
+    protein = rna2codon(rna)
+    #see campuswire post #867
+    for item in protein:
+            protein = protein.replace("T","U")
+    return protein
