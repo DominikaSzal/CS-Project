@@ -67,21 +67,17 @@ def fibonacci_rabbits(n,k):
 dna_list = ['CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG','CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC','CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT']
 
 def GC_content(dna_list):
-
-  a = dna_list[0]
-  b = dna_list[1]
-  c = dna_list[2]
-
-  GC_count0 = a.count('C') + a.count('G')
-  GC_count1 = b.count('C') + b.count('G')
-  GC_count2 = c.count('C') + c.count('G')
-
-  if GC_count0 > GC_count1 and GC_count0 > GC_count2:
-      return (0, (GC_count0/len(dna_list[0]))*100)
-  elif GC_count1 > GC_count0 and GC_count1 > GC_count2:
-      return (1, (GC_count1/len(dna_list[1]))*100)
-  elif GC_count2 > GC_count0 and GC_count2 > GC_count1:
-      return (2, (GC_count2/len(dna_list[2]))*100)
+    percentages = []
+    for index in range(len(dna_list)):
+        C = dna_list[index].count('C')
+        G = dna_list[index].count('G')
+        total = len(dna_list[index])
+        count = C + G
+        GC_percent = (count/total)*100
+        percentages.append(CG_percent)
+    highest_percentage = max(percentages)
+    index_highest_percentage = percentages.index(highest_percentage)
+    return ((index_highest_percentage,highest_percentage))
 
 def locate_substring(dna_snippet, dna): 
         indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
@@ -98,38 +94,36 @@ def hamming_dist(dna1, dna2):
         d += 1
     return count
 
-def rna2codons(triplet):
-  genetic_code = {
-   'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
-   'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+ def rna2codon_i(rnas):
+    genetic_code = {
+        'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+        'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
 
-   'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
-   'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+        'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S',        'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+        'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',        'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
 
-   'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
-   'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
+        'UAU': 'Y', 'UAC': 'Y', 'UAA': '*', 'UAG': '*',        'CAU': 'H', 'CAC': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'AAU': 'N', 'AAC': 'N', 'AAA': 'K', 'AAG': 'K',        'GAU': 'D', 'GAC': 'D', 'GAA': 'E', 'GAG': 'E',
 
-   'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
-   'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
-}
-  allowed_codons = set('ACGU')
-  tripletUP = triplet.upper()
-  for character in tripletUP:
-      if character not in allowed_codons:
-          return('Invalid')
-  return_val = genetic_code.get(tripletUP, 'Invalid')
-
-  return return_val
+        'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
+        'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
+    }
+    amino = ''
+    if rnas in genetic_code:
+        amino - genetic_code[str(rna)]
+    else:
+        amino = 'Invalid'
+    return amino
+    
 
 def rna2codon(rna):
-    amino_string = ''
-    for i in range( 0,int( len(rna) / 3 ) ):
-        c = rna[ 3*i:3*i+3 ]
-        amino = rna2codons(c)
-        amino_string = amino_string + amino
-        if amino_string == 'Invalid':
-            return rna
-    return amino_string
+    amino = ''
+    for i in range(0,int(len(rna)/3)):
+        if rna2codon_i(rna[3*i:3*i_3]) == '*':
+            return amino
+        else:
+            amino = amino + rna2codon_i(rna[3*i:3*i+3])
+    return amino
 
 def count_dom_phenotype(genotypes):
     offspring = (genotypes[0] + genotypes[1] + genotypes[2])*2 + genotypes[3]*1.5 + genotypes[4] 
