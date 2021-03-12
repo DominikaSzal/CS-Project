@@ -91,7 +91,7 @@ def hamming_dist(dna1, dna2):
         d += 1
     return count
 
-def rna2codon_i(rnas):
+def rna2codon1(rna1):
     genetic_code = {
         'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
         'AUU': 'I', 'AUC': 'I', 'AUA': 'I', 'AUG': 'M',        'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
@@ -106,7 +106,7 @@ def rna2codon_i(rnas):
         'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
     }
     amino = ''
-    if rnas in genetic_code:
+    if rna1 in genetic_code:
         amino - genetic_code[str(rna)]
     else:
         amino = 'Invalid'
@@ -116,10 +116,10 @@ def rna2codon_i(rnas):
 def rna2codon(rna):
     amino = ''
     for i in range(0,int(len(rna)/3)):
-        if rna2codon_i(rna[3*i:3*i_3]) == '*':
+        if rna2codon1(rna[3*i:3*i_3]) == '*':
             return amino
         else:
-            amino = amino + rna2codon_i(rna[3*i:3*i+3])
+            amino = amino + rna2codon1(rna[3*i:3*i+3])
     return amino
 
 def count_dom_phenotype(genotypes):
