@@ -62,20 +62,18 @@ def fibonacci_rabbits(n,k):
 
 
 dna_list = ['CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG','CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC','CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT']
-
 def GC_content(dna_list):
-    percentages = []
-    for index in range(len(dna_list)):
-        C = dna_list[index].count('C')
-        G = dna_list[index].count('G')
-        total = len(dna_list[index])
-        count = C + G
-        GC_percent = (count/total)*100
-        percentages.append(CG_percent)
-    highest_percentage = max(percentages)
-    index_highest_percentage = percentages.index(highest_percentage)
-    return ((index_highest_percentage,highest_percentage))
-
+    HP = 0 #Highest percentage
+    HI = 0 #Highest index
+    for i in range(len(dna_list)):
+        sum = 0
+        G = dna_list[i].count('G')
+        C = dna_list[i].count('C')
+        sum=C+G
+        if((sum/len(dna_list[i])))*100>HP:
+            HI= i
+            HP =sum/len(dna_list[i])*100
+            return HP,HI
 def locate_substring(dna_snippet, dna): 
         indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
         return indexes
