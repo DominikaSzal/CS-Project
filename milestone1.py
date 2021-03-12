@@ -76,13 +76,10 @@ def GC_content(dna_list):
     index_highest_percentage = percentages.index(highest_percentage)
     return ((index_highest_percentage,highest_percentage))
 
-def locate_substring(dna_snippet, dna):
-    begin = 0
-    while True: 
-        begin = dna.find(dna_snippet, begin)
-        if begin == -1: return 
-        yield begin       
-        begin += 1 
+def locate_substring(dna_snippet, dna): 
+        indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
+        return indexes
+
 def hamming_dist(dna1, dna2):
     count = 0
     d = 0
