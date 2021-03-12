@@ -11,14 +11,11 @@ def dna_count(dna):
 def dna2rna(dna):
     rna = ''
     for symbol in dna:
-        if symbol == 'A':
+        if symbol == 'T':
             rna += 'U'
-        elif symbol == 'T':
-            rna +='A'
-        elif symbol == 'C':
-            rna +='G'          
-        elif symbol == 'G':
-            rna += rna +'C'
+        else:
+            rna += symbol
+            
     return rna
 def reverse_complement(dna):
 
