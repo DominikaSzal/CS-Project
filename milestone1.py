@@ -18,19 +18,23 @@ def dna2rna(dna):
             
     return rna
 def reverse_complement(dna):
+    dna = dna[::-1]
+    reverse_dna = ''
+    
+    for symbol in dna:
+        if symbol == 'A':
+            reverse_dna +='T'
+        elif symbol == 'C':
+            reverse_dna += 'G'
+        elif symbol == 'G':
+            reverse_dna +='C'
+        elif symbol == 'T':
+            reverse_dna +='A'
+            
+        
+    print(reverse_dna)
+    return reverse_dna
 
-   for symbol in dna:
-       if symbol == 'A':
-           dna = dna + 'T'
-       elif symbol == 'T':
-           dna = dna + 'A'
-       elif symbol == 'C':
-           dna = dna + 'G'
-       elif symbol == 'G':
-           dna = dna + 'C'
-   reverse_dna = dna[::-1]
-
-   return reverse_dna
 
 def mendels_law(hom,het,rec):
     population = hom + het + rec
