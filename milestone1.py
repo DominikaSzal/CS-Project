@@ -68,10 +68,11 @@ def GC_content(dna_list):
         total = len(dna_list[index])
         count = C + G
         GC_percent = (count/total)*100
-        percentages.append(CG_percent)
+        percentages.append(GC_percent)
     highest_percentage = max(percentages)
     index_highest_percentage = percentages.index(highest_percentage)
     return ((index_highest_percentage,highest_percentage))
+
 def locate_substring(dna_snippet, dna): 
         indexes = [i for i in range(len(dna_snippet)) if dna_snippet.startswith(dna, i)] 
         return indexes
