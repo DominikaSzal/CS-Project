@@ -63,10 +63,10 @@ def fibonacci_rabbits(n,k):
 def GC_content(dna_list):
     percentages = []
     for index in range(len(dna_list)):
-        C = dna_list[index].count('C')
-        G = dna_list[index].count('G')
+        Ccount = dna_list[index].count('C')
+        Gcount = dna_list[index].count('G')
         total = len(dna_list[index])
-        count = C + G
+        count = Ccount + Gcount
         GC_percent = (count/total)*100
         percentages.append(GC_percent)
     highest_percentage = max(percentages)
