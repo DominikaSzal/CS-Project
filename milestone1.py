@@ -61,16 +61,16 @@ def fibonacci_rabbits(n,k):
     return F2
 
 def GC_content(dna_list):
-    percentages = []
+    percentage = []
     for index in range(len(dna_list)):
         Ccount = dna_list[index].count('C')
         Gcount = dna_list[index].count('G')
-        total = len(dna_list[index])
+        total_length = len(dna_list[index])
         count = Ccount + Gcount
-        GC_percent = (count/total)*100
-        percentages.append(GC_percent)
-    highest_percentage = max(percentages)
-    index_highest_percentage = percentages.index(highest_percentage)
+        GC_percent = (count/total_length)*100
+        percentage.append(GC_percent)
+    highest_percentage = max(percentage)
+    index_highest_percentage = percentage.index(highest_percentage)
     return ((index_highest_percentage,highest_percentage))
 
 def locate_substring(dna_snippet, dna): 
