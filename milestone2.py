@@ -10,6 +10,6 @@ def find_splice(dna_motif, dna):
         pos_list.append(position)
   
 
-        start = position
-  
-    return pos_list
+        start = position+1
+        if position ==-1:
+            return[]
