@@ -13,3 +13,4 @@ def find_splice(dna_motif, dna):
         start = position+1
         if position ==-1:
             return[]
+    return pos_list
