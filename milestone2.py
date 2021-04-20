@@ -127,3 +127,21 @@ def assemble_genome(A):
  
 
     return "".join(ans)
+
+def shared_motif(dna_list):
+    total = len(dna_list)
+    #using first string as a reference
+    ref = dna_list[0]
+    ref_len = len(ref)
+
+    substring = '' 
+    
+    if total > 1 and ref_len > 0:
+       for i in range(ref_len):
+          for d in range((ref_len)-i+1):
+             if d > len(substring) and all(ref[i:i+d] in x for x in dna_list):
+                substring = ref[i:i+d]
+
+
+
+    return substring 
