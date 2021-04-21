@@ -173,4 +173,15 @@ def rev_palindrome(dna):
                 ans.append((i,j-i+1))
 
     return ans
-    
+
+import math   
+def random_genome(dna, gc_content):
+   dna = dna.upper()
+   GC = len(dna.replace('A', '').replace('T', ''))
+   AT = len(dna.replace('C', '').replace('G', ''))
+   #creating empty list to put logs in
+   answer = []
+   for i in range(0, len(gc_content)):
+       x = GC * math.log10(float(gc_content[i]) / 2) + AT * math.log10((1 - float(gc_content[i])) / 2)
+       answer.append(x)
+   return answer
