@@ -185,3 +185,13 @@ def random_genome(dna, gc_content):
        x = GC * math.log10(float(gc_content[i]) / 2) + AT * math.log10((1 - float(gc_content[i])) / 2)
        answer.append(x)
    return answer
+
+
+import numpy as np
+from collections import Counter
+import math
+
+def perfect_match(rna):
+    counts = Counter(rna)
+    if counts['A'] == counts['U'] and counts['G'] == counts['C']:
+        return math.factorial(counts['A'])*math.factorial(counts['A'])
