@@ -195,6 +195,8 @@ def perfect_match(rna):
     counts = Counter(rna)
     if counts['A'] == counts['U'] and counts['G'] == counts['C']:
         return math.factorial(counts['A'])*math.factorial(counts['A'])
+    else:
+        return 0
 
 def get_edges(dict):
         #Initializing Variables
