@@ -145,3 +145,32 @@ def shared_motif(dna_list):
 
 
     return substring 
+
+
+def reverse_complement(dna):
+    dna = dna[::-1]
+    reverse_dna = ''
+    
+    for symbol in dna:
+        if symbol == 'A':
+            reverse_dna +='T'
+        elif symbol == 'C':
+            reverse_dna += 'G'
+        elif symbol == 'G':
+            reverse_dna +='C'
+        elif symbol == 'T':
+            reverse_dna +='A'
+    return reverse_dna
+def rev_palindrome(dna):
+    ans = []
+
+  
+    for i in range(len(dna)-4):
+        for j in range(i+3,min(len(dna),i+12)):
+            
+            string = dna[i:j+1]
+            if reverse_complement(dna[i:j+1]) == string:
+                ans.append((i,j-i+1))
+
+    return ans
+    
