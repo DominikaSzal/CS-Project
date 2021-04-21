@@ -196,7 +196,7 @@ def perfect_match(rna):
     if counts['A'] == counts['U'] and counts['G'] == counts['C']:
         return math.factorial(counts['A'])*math.factorial(counts['A'])
 
-def get_edgs(dict):
+def get_edges(dict):
         #Initializing Variables
         Ros_IDs = dict.keys()
         RI_list=[]
