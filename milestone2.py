@@ -195,3 +195,24 @@ def perfect_match(rna):
     counts = Counter(rna)
     if counts['A'] == counts['U'] and counts['G'] == counts['C']:
         return math.factorial(counts['A'])*math.factorial(counts['A'])
+
+def get_edgs(dict):
+        #Initializing Variables
+        Ros_IDs = dict.keys()
+        RI_list=[]
+        answer=[]
+
+        #Creating a list of the ROSALIND identifiers
+        for i in Ros_IDs:
+            RI_list.append(i)
+
+        #Compare the 3 figure prefix/suffix of items in RI_list to see if they share a common edge
+        for i in range(0,len(RI_list)):
+            for j in range(i+1,len(RI_list)):
+                if(dict[RI_list[i]][:3]==dict[RI_list[j]][-3:] or dict[RI_list[i]][-3:]==dict[RI_list[j]][:3]):
+
+                    #Add adjacentcy to the return list
+                    answer.append((RI_list[i],RI_list[j]))   
+
+        return answer
+    
